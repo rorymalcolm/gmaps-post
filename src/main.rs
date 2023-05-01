@@ -2,7 +2,7 @@ use std::fs;
 
 use serde::{Deserialize, Serialize};
 
-const FILE_PATH: &str = "/Users/rorymalcolm/Documents/gmaps-post/Records.json";
+const FILE_PATH: &str = "~/Downloads/Takeout/Location History/Records.json";
 
 #[derive(Serialize, Deserialize, Debug)]
 struct GmapsDataWrapper {
@@ -107,7 +107,6 @@ impl GmapsDataOutput {
 }
 
 fn main() {
-    println!("Hello, world!");
     let contents = fs::read_to_string(FILE_PATH).expect("Should have been able to read the file");
     let data: GmapsDataWrapper =
         serde_json::from_str(&contents).expect("Should have been able to parse the json");
